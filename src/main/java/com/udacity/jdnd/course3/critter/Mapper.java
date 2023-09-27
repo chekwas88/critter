@@ -59,7 +59,7 @@ public class Mapper {
 //    Map Pets
 public static Pet convertPetDTOToPet(PetDTO petDTO, CustomerService customerService) {
     Pet pet = new Pet();
-    BeanUtils.copyProperties(petDTO, pet, "ownerId");
+    BeanUtils.copyProperties(petDTO, pet);
     Customer customer = customerService.getCustomer(petDTO.getOwnerId());
     pet.setCustomer(customer);
     return pet;

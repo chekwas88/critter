@@ -32,6 +32,10 @@ public class UserController {
         Customer customer = Mapper.convertCustomerDTOToCustomer(customerDTO, petService);
         return  Mapper.convertCustomerToCustomerDTO(customerService.saveCustomer(customer));
     }
+    @GetMapping ("/customer/{customerId}")
+    public CustomerDTO getCustomer(@PathVariable long customerId) {
+        return Mapper.convertCustomerToCustomerDTO(customerService.getCustomer(customerId));
+    }
 
     @GetMapping("/customer")
     public List<CustomerDTO> getAllCustomers(){
